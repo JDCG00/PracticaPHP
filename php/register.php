@@ -7,7 +7,7 @@
     <title>Alta usuarios</title>
 </head>
 <body>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
+    <form action="#" method="post">
         <label>Nombre usuario:</label><br>
         <input type="text" name="user"><br>
         <label>Correo usuario:</label><br>
@@ -19,5 +19,12 @@
 </body>
 </html>
 <?php
+    require('operacionesdb.php');
 
+
+    class Register extends OperacionesDB{
+        
+        
+    }
+    
 ?>
