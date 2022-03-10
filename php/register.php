@@ -11,9 +11,9 @@
         <label>Nombre usuario:</label><br>
         <input type="text" name="user"><br>
         <label>Correo usuario:</label><br>
-        <input type="email" name="user"><br>
+        <input type="email" name="email"><br>
         <label>Contraseña usuario:</label><br>
-        <input type="password" name="user"><br>
+        <input type="password" name="pass"><br>
         <input type="submit" value="Enviar" name="submit">
     </form>
 </body>
@@ -21,10 +21,11 @@
 <?php
     require('operacionesdb.php');
 
+    $operaciones = new OperacionesDB;
 
-    class Register extends OperacionesDB{
-        
-        
+    if (isset($_POST['submit'])) {
+        $query = $operaciones -> preparar("INSERT INTO usuarios(nombreUsuario, email, contrasenia) VALUES(?,?,?);");
+        $query->bind_param("sss",$_POST["user"], $_POST["email"], $_POST["pass"]);
+        $query->execute();
     }
-    
 ?>
